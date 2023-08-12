@@ -1,0 +1,6 @@
+html{
+  background-color: var(--color-black-dark);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
