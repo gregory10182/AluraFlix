@@ -1,0 +1,50 @@
+.footer{
+  position: absolute;
+  box-sizing: border-box;
+  bottom: 0;
+  width: 100vw;
+  height: 6.88rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1.5rem 0.8rem;
+  row-gap: 1rem;
+  border-top: 0.125rem solid var(--color-primary-medium);
+  font-family: "Roboto", sans-serif;
+}
+
+.logo{
+  width: 7.5rem;
+  object-fit: contain;
+}
+
+.text{
+  color: var(--color-gray-light);
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.textChallenge{
+  font-weight: 600;
+}
+
+.textAlura{
+  color: var(--color-primary-medium);
+  font-weight: 600;
+}
+
+
+@media only screen and (min-width: 1440px) {
+  .footer {
+    height: 8.81rem;
+  }
+
+  .logo{
+    width: 15.78rem;
+    height: 3.75rem;
+  }
+
+  .text{
+    display: none;
+  }
+}
