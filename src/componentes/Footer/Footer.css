@@ -1,12 +1,11 @@
 .footer{
-  position: absolute;
   box-sizing: border-box;
-  bottom: 0;
   width: 100vw;
   height: 6.88rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 10rem;
   padding: 1.5rem 0.8rem;
   row-gap: 1rem;
   border-top: 0.125rem solid var(--color-primary-medium);
