@@ -56,9 +56,14 @@
 }
 
 .videoCard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 90%;
+  min-height: 5rem;
 }
 
 .videoMiniature{
   width: 100%;
+  object-fit: cover;
 }

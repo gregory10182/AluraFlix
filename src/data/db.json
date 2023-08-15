@@ -1,0 +1,79 @@
+{
+  "Categorias": [
+    {
+      "nombre": "Front End",
+      "color": "--color-frontend"
+    },
+    {
+      "nombre": "Back End",
+      "color": "--color-backend"
+    },
+    {
+      "nombre": "Mobile",
+      "color": "--color-mobile"
+    },
+    {
+      "nombre": "UX",
+      "color": "--color-ux"
+    },
+    {
+      "nombre": "Infra",
+      "color": "--color-infra"
+    },
+    {
+      "nombre": "Marketing",
+      "color": "--color-marketing"
+    },
+    {
+      "nombre": "Innovacion",
+      "color": "--colo-inovation"
+    },
+    {
+      "nombre": "Data Science",
+      "color": "--color-data-science"
+    }
+  ],
+
+  "Videos": [
+    {
+      "nombre": "Equipo Front End",
+      "categoria": "Front End",
+      "URL": "https://www.youtube.com/watch?v=rpvrLaBQwgg"
+    },
+    {
+      "nombre": "¿Cuál es la diferencia entre Front End y Back End?",
+      "categoria": "Front End",
+      "URL": "https://www.youtube.com/watch?v=R9uaBxgCkyA"
+    },
+    {
+      "nombre": "Bucles y Bucles Anidados en Javascript",
+      "categoria": "Front End",
+      "URL": "https://www.youtube.com/watch?v=FEdqGdtZuwc"
+    },
+    {
+      "nombre": "¿Cómo un desarrollador Front End utiliza el Figma?",
+      "categoria": "Front End",
+      "URL": "https://www.youtube.com/watch?v=UuAX5azcvDQ"
+    },
+    {
+      "nombre": "De Front End a Back End con Java",
+      "categoria": "Back End",
+      "URL": "https://www.youtube.com/watch?v=3aK3Omo2RrU"
+    },
+    {
+      "nombre": "Explorando el poder del Back-End en el Desarrollo Web",
+      "categoria": "Back End",
+      "URL": "https://www.youtube.com/watch?v=Z024LSCMqFk"
+    },
+    {
+      "nombre": "Desmistificando el Back-End",
+      "categoria": "Back End",
+      "URL": "https://www.youtube.com/watch?v=LLt7FreeHfQ"
+    },
+    {
+      "nombre": "Café Punto Tech | ¿Cómo elegir entre Frontend y Backend?",
+      "categoria": "Back End",
+      "URL": "https://www.youtube.com/watch?v=19x46ZQD49A"
+    }
+  ]
+}

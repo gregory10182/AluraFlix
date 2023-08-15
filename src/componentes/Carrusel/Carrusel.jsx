@@ -2,6 +2,8 @@ import Slider from "react-slick";
 import VideoCard from "./VideoCard";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import data from "../../data/db.json";
+import { useEffect, useState } from "react";
 
 function Carrusel({ sectionTitle, sectionDesc, sectionColor }) {
   const settings = {
@@ -18,6 +20,15 @@ function Carrusel({ sectionTitle, sectionDesc, sectionColor }) {
     backgroundColor: `var(${sectionColor})`,
   };
 
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    const filtrados = data.Videos.filter(
+      (video) => video.categoria === sectionTitle
+    );
+    setVideos(filtrados);
+  }, [sectionTitle]);
+
   return (
     <div className="carrusel">
       <div className="carruselHeader">
@@ -29,10 +40,9 @@ function Carrusel({ sectionTitle, sectionDesc, sectionColor }) {
 
       <div className="slider">
         <Slider {...settings}>
-          <VideoCard color={sectionColor} />
-          <VideoCard color={sectionColor} />
-          <VideoCard color={sectionColor} />
-          <VideoCard color={sectionColor} />
+          {videos.map((video, i) => {
+            return <VideoCard key={i} color={sectionColor} url={video.URL} />;
+          })}
         </Slider>
       </div>
     </div>
