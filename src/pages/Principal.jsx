@@ -1,6 +1,7 @@
 import Banner from "../componentes/Banner/Banner";
 import Carrusel from "../componentes/Carrusel/Carrusel";
 import Boton from "../componentes/Button/Boton";
+import { Link } from "react-router-dom";
 import datos from "../data/db.json";
 
 function Principal() {
@@ -23,8 +24,9 @@ function Principal() {
           );
         }
       })}
-
-      <Boton text="Nuevo video" type="nuevoVideo" />
+      <Link to={"/nuevoVid"}>
+        <Boton text="Nuevo video" type="nuevoVideo" />
+      </Link>
     </section>
   );
 }

@@ -1,7 +1,6 @@
 import "./Boton.css";
-import { Link } from "react-router-dom";
 
-function Boton({ text, type }) {
+function Boton({ text, type, onClick }) {
   const types = [
     "ver",
     "guardar",
@@ -13,11 +12,12 @@ function Boton({ text, type }) {
 
   return (
     <>
-      <Link to={"/nuevoVid"}>
-        <button className={`boton ${types.indexOf(type) !== -1 ? type : ""}`}>
-          {text}
-        </button>
-      </Link>
+      <button
+        onClick={onClick || null}
+        className={`boton ${types.indexOf(type) !== -1 ? type : ""}`}
+      >
+        {text}
+      </button>
     </>
   );
 }

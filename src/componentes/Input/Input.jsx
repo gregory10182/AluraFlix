@@ -1,15 +1,8 @@
-import { useEffect, useState } from "react";
 import "./Input.css";
 import { v4 as uuidv4 } from "uuid";
 
-function Input({ type, placeholder, dataOutput }) {
+function Input({ type, placeholder, dataOutput, data, options }) {
   const inputId = uuidv4();
-
-  const [data, setData] = useState("");
-
-  useEffect(() => {
-    dataOutput(data);
-  }, [data]);
 
   if (type === "text") {
     return (
@@ -23,7 +16,7 @@ function Input({ type, placeholder, dataOutput }) {
           required
           maxLength={50}
           value={data}
-          onChange={(e) => setData(e.target.value)}
+          onChange={(e) => dataOutput(e.target.value)}
         />
         <label className="inputLabel" htmlFor={inputId}>
           {placeholder}
@@ -42,11 +35,62 @@ function Input({ type, placeholder, dataOutput }) {
           name={placeholder}
           required
           value={data}
-          onChange={(e) => setData(e.target.value)}
+          onChange={(e) => dataOutput(e.target.value)}
         />
         <label className="inputLabel" htmlFor={inputId}>
           {placeholder}
         </label>
+        <span className="errorMessage"></span>
+      </div>
+    );
+  } else if (type === "url") {
+    return (
+      <div className="inputContainer">
+        <input
+          className="input inputV"
+          type="URL"
+          placeholder={placeholder}
+          id={inputId}
+          name={placeholder}
+          required
+          value={data}
+          onChange={(e) => dataOutput(e.target.value)}
+        />
+        <label className="inputLabel" htmlFor={inputId}>
+          {placeholder}
+        </label>
+        <span className="errorMessage"></span>
+      </div>
+    );
+  } else if (type === "select") {
+    return (
+      <div className="inputContainer">
+        <select
+          className="select inputV"
+          name={placeholder}
+          id={inputId}
+          value={data}
+          onChange={(e) => {
+            dataOutput(e.target.value);
+          }}
+        >
+          <option value={""} disabled defaultValue={""} hidden>
+            Escoja una Categoria
+          </option>
+          {options.map((option, i) => {
+            return <option key={i}>{option}</option>;
+          })}
+        </select>
+        {/* <input
+          className="input inputV"
+          type="URL"
+          placeholder={placeholder}
+          id={inputId}
+          name={placeholder}
+          required
+          value={data}
+          onChange={(e) => setData(e.target.value)}
+        /> */}
         <span className="errorMessage"></span>
       </div>
     );
@@ -61,7 +105,7 @@ function Input({ type, placeholder, dataOutput }) {
           required
           maxLength="300"
           value={data}
-          onChange={(e) => setData(e.target.value)}
+          onChange={(e) => dataOutput(e.target.value)}
         ></textarea>
         <label className="inputLabel" htmlFor={inputId}>
           {placeholder}
