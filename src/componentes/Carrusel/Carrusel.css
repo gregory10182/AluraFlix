@@ -40,7 +40,9 @@
   color: var(--color-gray-light);
   font-size: 1rem;
   font-weight: 400;
-  width: 5.3125rem;
+  padding: 0 0.5rem;
+  min-width: 4.5rem;
+  width: auto;
   height: 2.0625rem;
   display: flex;
   justify-content: center;

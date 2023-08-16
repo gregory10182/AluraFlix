@@ -45,6 +45,7 @@
 }
 
 .nuevoVideo{
+  margin-top: 5rem;
   width: 100vw;
   height: 3.375rem; 
   font-size: 1.3125rem;
@@ -55,7 +56,7 @@
 
 
 @media only screen and (min-width: 1440px) {
-  .nuevoVideo {
+  .nuevoVideoHeader {
     width: 11.25781rem;
     height: 3.375rem;
     font-size: 1.2rem;
@@ -64,5 +65,9 @@
     color: var(--color-gray-light);
     border-radius: 0.3rem;
     border: 0.1rem solid var(--color-gray-light);
+  }
+
+  .nuevoVideo{
+    display: none;
   }
 }

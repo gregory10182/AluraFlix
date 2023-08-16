@@ -1,0 +1,136 @@
+.inputlabel {
+  width: 100%;
+  margin-left: 3px;
+  font-weight: 600;
+  font-size: clamp(16px, 1.7vw, 25px);
+}
+
+.inputContainer {
+  font-family: 'Roboto', sans-serif;
+  margin-top: 5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.input::placeholder {
+  visibility: hidden;
+}
+
+.textArea::placeholder {
+  visibility: hidden;
+}
+
+.errorMessage {
+  display: none;
+}
+
+.inputContainerInvalid .errorMessage {
+  display: block;
+  margin-top: 0.2rem;
+  padding-left: 0.2rem;
+
+  font-size: 14px;
+}
+
+.inputContainer .inputLabel {
+  position: absolute;
+  top: 0.94rem;
+  left: 0.55rem;
+  width: 100%;
+  margin-left: 3px;
+  font-weight: 300;
+  font-size: 1.125rem;
+  transition: all 0.3s;
+}
+
+.input:not(:placeholder-shown)+.inputLabel,
+.input:focus+.inputLabel {
+  font-size: 0.75rem !important;
+  top: 0.3rem !important;
+  transition: all 0.3s;
+}
+
+.textArea:not(:placeholder-shown)+.inputLabel,
+.textArea:focus+.inputLabel {
+  font-size: 0.75rem !important;
+  top: 0.3rem !important;
+  transition: all 0.3s;
+}
+
+.input {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  box-sizing: border-box;
+  width: 100%;
+  height: 3.125rem;
+  padding: 1rem 0.64rem 0.64rem 0.64rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+}
+
+.textArea {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100px;
+  padding: 1.3rem 0.64rem 0.64rem 0.64rem;
+  font-size: 16px;
+  resize: none;
+  border: none;
+  outline: none;
+}
+
+.inputContainerInvalid .inputV {
+  border-bottom: 2px solid #F51400;
+  color: #F51400;
+}
+
+.inputContainerInvalid .inputLabel {
+  color: #F51400;
+}
+
+.inputContainerInvalid .errorMessage {
+  color: #F51400;
+}
+
+.inputLabel {
+  color: var(--color-gray-dark);
+}
+
+.input {
+  background-color: var(--color-gray-semidark);
+  border-bottom: 0.25rem solid var(--color-primary-medium);
+  color: var(--color-gray-medium);
+}
+
+.textArea {
+  background-color: var(--color-gray-semidark);
+  border-bottom: 0.25rem solid var(--color-primary-medium);
+  color: var(--color-gray-medium);
+}
+
+
+@media only screen and (min-width: 1440px) {
+
+  .contactSection form {
+    width: 65%;
+  }
+
+  .contactSection form input {
+    height: 45px;
+  }
+
+  .contactSection form button {
+    height: 50px;
+  }
+}
