@@ -1,44 +1,60 @@
 {
   "Categorias": [
     {
+      "id": 1,
       "nombre": "Front End",
       "color": "--color-frontend",
-      "desc": "Formacion Front End de Alura Latam"
+      "desc": "Formacion Front End de Alura Latam",
+      "usuario": ""
     },
     {
+      "id": 2,
       "nombre": "Back End",
       "color": "--color-backend",
-      "desc": "Formacion Back End de Alura Latam"
+      "desc": "Formacion Back End de Alura Latam",
+      "usuario": ""
     },
     {
+      "id": 3,
       "nombre": "Mobile",
       "color": "--color-mobile",
-      "desc": "Formacion Mobile de Alura Latam"
+      "desc": "Formacion Mobile de Alura Latam",
+      "usuario": ""
     },
     {
+      "id": 4,
       "nombre": "UX",
       "color": "--color-ux",
-      "desc": "Formacion UX de Alura Latam"
+      "desc": "Formacion UX de Alura Latam",
+      "usuario": ""
     },
     {
+      "id": 5,
       "nombre": "Infra",
       "color": "--color-infra",
-      "desc": "Formacion Infra de Alura Latam"
+      "desc": "Formacion Infra de Alura Latam",
+      "usuario": ""
     },
     {
+      "id": 6,
       "nombre": "Marketing",
       "color": "--color-marketing",
-      "desc": "Formacion Marketing de Alura Latam"
+      "desc": "Formacion Marketing de Alura Latam",
+      "usuario": ""
     },
     {
+      "id": 7,
       "nombre": "Innovacion",
       "color": "--colo-inovation",
-      "desc": "Formacion Innovacion de Alura Latam"
+      "desc": "Formacion Innovacion de Alura Latam",
+      "usuario": ""
     },
     {
+      "id": 8,
       "nombre": "Data Science",
       "color": "--color-data-science",
-      "desc": "Formacion Data Science de Alura Latam"
+      "desc": "Formacion Data Science de Alura Latam",
+      "usuario": ""
     }
   ],
 
@@ -46,50 +62,66 @@
     {
       "id": 1,
       "nombre": "Equipo Front End",
+      "desc": "",
       "categoria": "Front End",
-      "URL": "https://www.youtube.com/watch?v=rpvrLaBQwgg"
+      "URL": "https://www.youtube.com/watch?v=rpvrLaBQwgg",
+      "imgUrl": "https://img.youtube.com/vi/rpvrLaBQwgg/maxresdefault.jpg"
     },
     {
       "id": 2,
       "nombre": "¿Cuál es la diferencia entre Front End y Back End?",
+      "desc": "",
       "categoria": "Front End",
-      "URL": "https://www.youtube.com/watch?v=R9uaBxgCkyA"
+      "URL": "https://www.youtube.com/watch?v=R9uaBxgCkyA",
+      "imgUrl": "https://img.youtube.com/vi/R9uaBxgCkyA/maxresdefault.jpg"
     },
     {
       "id": 3,
       "nombre": "Bucles y Bucles Anidados en Javascript",
+      "desc": "",
       "categoria": "Front End",
-      "URL": "https://www.youtube.com/watch?v=FEdqGdtZuwc"
+      "URL": "https://www.youtube.com/watch?v=FEdqGdtZuwc",
+      "imgUrl": "https://img.youtube.com/vi/FEdqGdtZuwc/maxresdefault.jpg"
     },
     {
       "id": 4,
       "nombre": "¿Cómo un desarrollador Front End utiliza el Figma?",
+      "desc": "",
       "categoria": "Front End",
-      "URL": "https://www.youtube.com/watch?v=UuAX5azcvDQ"
+      "URL": "https://www.youtube.com/watch?v=UuAX5azcvDQ",
+      "imgUrl": "https://img.youtube.com/vi/UuAX5azcvDQ/maxresdefault.jpg"
     },
     {
       "id": 5,
       "nombre": "De Front End a Back End con Java",
+      "desc": "",
       "categoria": "Back End",
-      "URL": "https://www.youtube.com/watch?v=3aK3Omo2RrU"
+      "URL": "https://www.youtube.com/watch?v=3aK3Omo2RrU",
+      "imgUrl": "https://img.youtube.com/vi/3aK3Omo2RrU/maxresdefault.jpg"
     },
     {
       "id": 6,
       "nombre": "Explorando el poder del Back-End en el Desarrollo Web",
+      "desc": "",
       "categoria": "Back End",
-      "URL": "https://www.youtube.com/watch?v=Z024LSCMqFk"
+      "URL": "https://www.youtube.com/watch?v=Z024LSCMqFk",
+      "imgUrl": "https://img.youtube.com/vi/Z024LSCMqFk/maxresdefault.jpg"
     },
     {
       "id": 7,
       "nombre": "Desmistificando el Back-End",
+      "desc": "",
       "categoria": "Back End",
-      "URL": "https://www.youtube.com/watch?v=LLt7FreeHfQ"
+      "URL": "https://www.youtube.com/watch?v=LLt7FreeHfQ",
+      "imgUrl": "https://img.youtube.com/vi/LLt7FreeHfQ/maxresdefault.jpg"
     },
     {
       "id": 8,
       "nombre": "Café Punto Tech | ¿Cómo elegir entre Frontend y Backend?",
+      "desc": "",
       "categoria": "Back End",
-      "URL": "https://www.youtube.com/watch?v=19x46ZQD49A"
+      "URL": "https://www.youtube.com/watch?v=19x46ZQD49A",
+      "imgUrl": "https://img.youtube.com/vi/19x46ZQD49A/maxresdefault.jpg"
     }
   ]
 }

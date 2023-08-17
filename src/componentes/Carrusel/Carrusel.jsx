@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import VideoCard from "./VideoCard";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import data from "../../data/db.json";
+import apiVideos from "../../services/videoService";
 import { useEffect, useState } from "react";
 
 function Carrusel({ sectionTitle, sectionDesc, sectionColor }) {
@@ -16,37 +16,38 @@ function Carrusel({ sectionTitle, sectionDesc, sectionColor }) {
     centerMode: true,
   };
 
+  const [videos, setVideos] = useState([]);
+
   const style = {
     backgroundColor: `var(${sectionColor})`,
   };
 
-  const [videos, setVideos] = useState([]);
-
   useEffect(() => {
-    const filtrados = data.Videos.filter(
-      (video) => video.categoria === sectionTitle
-    );
-    setVideos(filtrados);
+    apiVideos.getCategoryVideos(sectionTitle).then((res) => {
+      setVideos(res);
+    });
   }, [sectionTitle]);
 
-  return (
-    <div className="carrusel">
-      <div className="carruselHeader">
-        <h2 style={style} className="sectionTitle">
-          {sectionTitle}
-        </h2>
-        <p className="sectionDesc">{sectionDesc}</p>
-      </div>
+  if (videos.length > 0) {
+    return (
+      <div className="carrusel">
+        <div className="carruselHeader">
+          <h2 style={style} className="sectionTitle">
+            {sectionTitle}
+          </h2>
+          <p className="sectionDesc">{sectionDesc}</p>
+        </div>
 
-      <div className="slider">
-        <Slider {...settings}>
-          {videos.map((video, i) => {
-            return <VideoCard key={i} color={sectionColor} url={video.URL} />;
-          })}
-        </Slider>
+        <div className="slider">
+          <Slider {...settings}>
+            {videos.map((video, i) => {
+              return <VideoCard key={i} color={sectionColor} url={video.URL} />;
+            })}
+          </Slider>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Carrusel;
