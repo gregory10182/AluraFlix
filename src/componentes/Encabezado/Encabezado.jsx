@@ -1,10 +1,13 @@
 import "./Encabezado.css";
 import Boton from "../Button/Boton";
+import { Link } from "react-router-dom";
 
 function Encabezado() {
   return (
     <section className="encabezado">
-      <img src="src/assets/Logo.png" alt="" />
+      <Link to={"/"}>
+        <img src="src/assets/Logo.png" alt="" />
+      </Link>
       <Boton text={"Nuevo Video"} type={"nuevoVideoHeader"} />
     </section>
   );

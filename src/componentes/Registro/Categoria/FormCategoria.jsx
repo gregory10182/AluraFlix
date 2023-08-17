@@ -1,15 +1,11 @@
-import "./FormVideo.css";
 import Input from "../../Input/Input";
 import Boton from "../../Button/Boton";
-import { Link } from "react-router-dom";
+import "./FormCategoria.css";
 import { useState } from "react";
-import data from "../../../data/db.json";
 
-function FormVideo() {
+function FormCategoria() {
   const [titulo, setTitulo] = useState("");
-  const [linkVideo, setlinkVideo] = useState("");
-  const [linkImgVideo, setlinkImgVideo] = useState("");
-  const [categoria, setCategoria] = useState("");
+  const [color, setColor] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [usuario, setUsuario] = useState("");
 
@@ -19,15 +15,14 @@ function FormVideo() {
 
   const limpiar = () => {
     setTitulo("");
-    setlinkVideo("");
-    setlinkImgVideo("");
-    setCategoria("");
+    setColor("#000000");
     setDescripcion("");
     setUsuario("");
   };
+
   return (
     <div className="formContainer">
-      <h2 className="formTitle">Nuevo Video</h2>
+      <h2 className="formTitle">Nueva Categoria</h2>
       <form className="form">
         <Input
           type={"text"}
@@ -36,30 +31,15 @@ function FormVideo() {
           dataOutput={setTitulo}
         />
         <Input
-          type={"url"}
-          placeholder={"Link del video"}
-          data={linkVideo}
-          dataOutput={setlinkVideo}
-        />
-        <Input
-          type={"url"}
-          data={linkImgVideo}
-          placeholder={"Link de la imagen del video"}
-          dataOutput={setlinkImgVideo}
-        />
-        <Input
-          type={"select"}
-          data={categoria}
-          placeholder={"Escoja una categoria"}
-          dataOutput={setCategoria}
-          options={data.Categorias.map((Categoria) => {
-            return Categoria.nombre;
-          })}
+          type={"color"}
+          placeholder={"color"}
+          data={color}
+          dataOutput={setColor}
         />
         <Input
           type={"textArea"}
-          data={descripcion}
           placeholder={"Descripción"}
+          data={descripcion}
           dataOutput={setDescripcion}
         />
         <Input
@@ -73,12 +53,8 @@ function FormVideo() {
         <Boton type={"guardar"} text={"Guardar"} onClick={guardar} />
         <Boton type={"limpiar"} text={"Limpiar"} onClick={limpiar} />
       </div>
-
-      <Link to={"/nuevaCat"}>
-        <Boton type={"nuevaCategoria"} text={"Nueva Categoria"} />
-      </Link>
     </div>
   );
 }
 
-export default FormVideo;
+export default FormCategoria;

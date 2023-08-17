@@ -9,8 +9,9 @@
   font-family: 'Roboto', sans-serif;
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   box-sizing: border-box;
   width: 100%;
   border-radius: 5px;
@@ -32,9 +33,9 @@
 
 .inputContainerInvalid .errorMessage {
   display: block;
+  justify-self: flex-start;
   margin-top: 0.2rem;
   padding-left: 0.2rem;
-
   font-size: 14px;
 }
 
@@ -52,14 +53,14 @@
 .input:not(:placeholder-shown)+.inputLabel,
 .input:focus+.inputLabel {
   font-size: 0.6rem !important;
-  top: 0.1rem !important;
+  top: 0.2rem !important;
   transition: all 0.3s;
 }
 
 .textArea:not(:placeholder-shown)+.inputLabel,
 .textArea:focus+.inputLabel {
   font-size: 0.6rem !important;
-  top: 0.1rem !important;
+  top: 0.25rem !important;
   transition: all 0.3s;
 }
 
@@ -74,6 +75,10 @@
   font-size: 0.9rem;
   border: none;
   outline: none;
+}
+
+.form .colorInput{
+  padding: 0.6rem 0.5rem 0.5rem 0.5rem;
 }
 
 .select {
