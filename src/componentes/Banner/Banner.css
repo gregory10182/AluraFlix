@@ -9,7 +9,7 @@
   align-content: flex-end;
   row-gap: 1.18rem;
   font-family: 'Roboto', sans-serif;
-  background-image: url('/src/assets/Banner.jpeg');
+  background-image: url('/Banner.jpeg');
   box-shadow: inset 0 0 10rem 4rem #000;
   background-position: center center;
   background-repeat: no-repeat;

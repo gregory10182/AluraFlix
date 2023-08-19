@@ -17,7 +17,7 @@ function Banner() {
             aplicar todos los conocimientos adquiridos en la formación React.
           </p>
         </div>
-        <img className="videoImage" src="src\assets\video Banner.jpeg" alt="" />
+        <img className="videoImage" src="/video Banner.jpeg" alt="" />
       </div>
     </section>
   );

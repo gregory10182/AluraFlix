@@ -6,7 +6,7 @@ function Encabezado() {
   return (
     <section className="encabezado">
       <Link to={"/"}>
-        <img src="src/assets/Logo.png" alt="" />
+        <img src="/Logo.png" alt="" />
       </Link>
       <Boton text={"Nuevo Video"} type={"nuevoVideoHeader"} />
     </section>
