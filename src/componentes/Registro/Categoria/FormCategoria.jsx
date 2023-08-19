@@ -1,16 +1,46 @@
 import Input from "../../Input/Input";
 import Boton from "../../Button/Boton";
 import "./FormCategoria.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import apiCategories from "../../../services/categoryService";
+import { v4 as uuidv4 } from "uuid";
 
 function FormCategoria() {
   const [titulo, setTitulo] = useState("");
-  const [color, setColor] = useState("");
+  const [color, setColor] = useState("#000000");
   const [descripcion, setDescripcion] = useState("");
   const [usuario, setUsuario] = useState("");
+  const [activo, setActivo] = useState(false);
+
+  useEffect(() => {
+    if (
+      titulo === "" ||
+      color === "#000000" ||
+      descripcion === "" ||
+      usuario === ""
+    ) {
+      setActivo(false);
+    } else {
+      setActivo(true);
+    }
+  }, [titulo, color, descripcion, usuario]);
 
   const guardar = () => {
-    console.log("hola");
+    const categoryData = {
+      id: uuidv4(),
+      nombre: titulo,
+      color,
+      desc: descripcion,
+      usuario,
+    };
+
+    apiCategories
+      .createCategory(categoryData)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => console.log(err));
+    console.log(categoryData);
   };
 
   const limpiar = () => {
@@ -50,7 +80,12 @@ function FormCategoria() {
         />
       </form>
       <div className="botones">
-        <Boton type={"guardar"} text={"Guardar"} onClick={guardar} />
+        <Boton
+          type={"guardar"}
+          text={"Guardar"}
+          onClick={guardar}
+          activo={activo}
+        />
         <Boton type={"limpiar"} text={"Limpiar"} onClick={limpiar} />
       </div>
     </div>

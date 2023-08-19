@@ -6,6 +6,12 @@ const getAll = () => {
   return request.then((response) => response.data).catch((err) => err);
 };
 
-const apiCategories = { getAll };
+const createCategory = (data) => {
+  const request = axios.post(baseUrl, data);
+
+  return request.then((response) => response).catch((err) => err);
+};
+
+const apiCategories = { getAll, createCategory };
 
 export default apiCategories;

@@ -2,7 +2,9 @@ import "./Carrusel.css";
 
 function VideoCard({ color, imgUrl }) {
   const border = {
-    border: `0.2rem solid var(${color})`,
+    border: `0.2rem solid ${
+      color.includes("--") ? `var(${color})` : `${color}`
+    }`,
   };
 
   // const getYoutubeThumbnail = (url) => {

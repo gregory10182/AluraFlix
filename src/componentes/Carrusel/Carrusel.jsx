@@ -19,7 +19,9 @@ function Carrusel({ sectionTitle, sectionDesc, sectionColor }) {
   const [videos, setVideos] = useState([]);
 
   const style = {
-    backgroundColor: `var(${sectionColor})`,
+    backgroundColor: `${
+      sectionColor.includes("--") ? `var(${sectionColor})` : `${sectionColor}`
+    }`,
   };
 
   useEffect(() => {
