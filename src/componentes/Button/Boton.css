@@ -6,6 +6,10 @@
   font-size: 1rem;
 }
 
+.boton:disabled{
+  opacity: 0.5;
+}
+
 .ver{
   width: 6.25rem;
   height: 1.74rem;

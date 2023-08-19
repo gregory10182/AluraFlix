@@ -1,9 +1,11 @@
 import "./FormVideo.css";
 import Input from "../../Input/Input";
 import Boton from "../../Button/Boton";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import data from "../../../data/db.json";
+import { v4 as uuidv4 } from "uuid";
+import apiVideos from "../../../services/videoService";
 
 function FormVideo() {
   const [titulo, setTitulo] = useState("");
@@ -12,10 +14,45 @@ function FormVideo() {
   const [categoria, setCategoria] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [usuario, setUsuario] = useState("");
+  const [activo, setActivo] = useState(false);
+
+  const navigate = useNavigate();
 
   const guardar = () => {
-    console.log("hola");
+    const videoData = {
+      id: uuidv4(),
+      nombre: titulo,
+      URL: linkVideo,
+      imgUrl: linkImgVideo,
+      categoria,
+      desc: descripcion,
+      usuario,
+    };
+
+    apiVideos
+      .createVideo(videoData)
+      .then((response) => {
+        if (response.status === 201) {
+          navigate("/", { replace: true });
+        }
+      })
+      .catch((err) => console.log(err));
   };
+
+  useEffect(() => {
+    if (
+      titulo === "" ||
+      linkVideo === "" ||
+      linkImgVideo === "" ||
+      categoria === "" ||
+      descripcion === "" ||
+      usuario === ""
+    ) {
+      setActivo(false);
+    } else {
+      setActivo(true);
+    }
+  }, [titulo, linkVideo, linkImgVideo, categoria, descripcion, usuario]);
 
   const limpiar = () => {
     setTitulo("");
@@ -70,7 +107,12 @@ function FormVideo() {
         />
       </form>
       <div className="botones">
-        <Boton type={"guardar"} text={"Guardar"} onClick={guardar} />
+        <Boton
+          type={"guardar"}
+          text={"Guardar"}
+          onClick={guardar}
+          activo={activo}
+        />
         <Boton type={"limpiar"} text={"Limpiar"} onClick={limpiar} />
       </div>
 

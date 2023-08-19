@@ -57,7 +57,6 @@
       "usuario": ""
     }
   ],
-
   "Videos": [
     {
       "id": 1,
@@ -122,6 +121,15 @@
       "categoria": "Back End",
       "URL": "https://www.youtube.com/watch?v=19x46ZQD49A",
       "imgUrl": "https://img.youtube.com/vi/19x46ZQD49A/maxresdefault.jpg"
+    },
+    {
+      "id": "ec67abd2-6ad0-47f5-ac86-febcd66bc154",
+      "nombre": "¿Por qué estudiar Data Science?",
+      "URL": "https://www.youtube.com/watch?v=7_UXo-aqAeM",
+      "imgUrl": "https://img.youtube.com/vi/7_UXo-aqAeM/maxresdefault.jpg",
+      "categoria": "Data Science",
+      "desc": "Razones para estudiar data science",
+      "usuario": "Gregory"
     }
   ]
 }

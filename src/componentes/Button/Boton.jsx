@@ -1,6 +1,6 @@
 import "./Boton.css";
 
-function Boton({ text, type, onClick }) {
+function Boton({ text, type, onClick, activo = true }) {
   const types = [
     "ver",
     "guardar",
@@ -15,6 +15,7 @@ function Boton({ text, type, onClick }) {
       <button
         onClick={onClick || null}
         className={`boton ${types.indexOf(type) !== -1 ? type : ""}`}
+        disabled={!activo}
       >
         {text}
       </button>

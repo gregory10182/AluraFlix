@@ -41,7 +41,9 @@ function Carrusel({ sectionTitle, sectionDesc, sectionColor }) {
         <div className="slider">
           <Slider {...settings}>
             {videos.map((video, i) => {
-              return <VideoCard key={i} color={sectionColor} url={video.URL} />;
+              return (
+                <VideoCard key={i} color={sectionColor} imgUrl={video.imgUrl} />
+              );
             })}
           </Slider>
         </div>

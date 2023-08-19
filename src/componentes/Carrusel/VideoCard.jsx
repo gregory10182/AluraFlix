@@ -1,31 +1,24 @@
 import "./Carrusel.css";
-import { useEffect, useState } from "react";
 
-function VideoCard({ color, url }) {
+function VideoCard({ color, imgUrl }) {
   const border = {
     border: `0.2rem solid var(${color})`,
   };
 
-  const [thumbnail, setThumbnail] = useState("");
-
-  const getYoutubeThumbnail = (url) => {
-    const position = url.indexOf("v=");
-    if (position !== -1) {
-      const id = url.substring(position + 2);
-      const thumbnail = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
-      setThumbnail(thumbnail);
-    } else {
-      setThumbnail("/src/assets/Logo.png");
-    }
-  };
-
-  useEffect(() => {
-    getYoutubeThumbnail(url);
-  }, [url]);
+  // const getYoutubeThumbnail = (url) => {
+  //   const position = url.indexOf("v=");
+  //   if (position !== -1) {
+  //     const id = url.substring(position + 2);
+  //     const thumbnail = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
+  //     setThumbnail(thumbnail);
+  //   } else {
+  //     setThumbnail("/src/assets/Logo.png");
+  //   }
+  // };
 
   return (
     <div style={border} className="videoCard">
-      <img className="videoMiniature" src={thumbnail} alt="a" />
+      <img className="videoMiniature" src={imgUrl} alt="a" />
     </div>
   );
 }

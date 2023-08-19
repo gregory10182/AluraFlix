@@ -17,6 +17,12 @@ const getCategoryVideos = (category) => {
     .catch((err) => err);
 };
 
-const apiVideos = { getAll, getCategoryVideos };
+const createVideo = (data) => {
+  const request = axios.post(baseUrl, data);
+
+  return request.then((response) => response).catch((err) => err);
+};
+
+const apiVideos = { getAll, getCategoryVideos, createVideo };
 
 export default apiVideos;
