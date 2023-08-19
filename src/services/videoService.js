@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = "http://localhost:3000/Videos";
+const baseUrl = "https://aluraflixapi.gregorypf.site/Videos";
 
 const getAll = () => {
   const request = axios.get(baseUrl);
