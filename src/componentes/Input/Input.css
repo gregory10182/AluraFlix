@@ -125,23 +125,15 @@
   color: var(--color-gray-dark);
 }
 
-.input {
+.input,.textArea,.select {
   background-color: var(--color-gray-semidark);
-  border-bottom: 0.25rem solid var(--color-primary-medium);
   color: var(--color-gray-medium);
+  transition: 200ms all;
 }
 
-.select {
-  background-color: var(--color-gray-semidark);
+.input:focus,.textArea:focus,.select:focus{
   border-bottom: 0.25rem solid var(--color-primary-medium);
-  color: var(--color-gray-dark);
-}
-
-
-.textArea {
-  background-color: var(--color-gray-semidark);
-  border-bottom: 0.25rem solid var(--color-primary-medium);
-  color: var(--color-gray-medium);
+  transition: 200ms all;
 }
 
 
@@ -157,5 +149,33 @@
 
   .contactSection form button {
     height: 50px;
+  }
+
+
+  .input, .select, .form .colorInput{
+    height: 3.125rem;
+    font-size: 1.125rem;
+    padding: 1rem 1rem 0.5rem 1rem;
+  }
+
+  .textArea{
+    height: 9.375rem;
+    font-size: 1.125rem;
+  }
+
+  .inputContainer .inputLabel{
+    top: 0.94rem;
+    font-size: 1.125rem;
+  }
+
+  .input:not(:placeholder-shown)+.inputLabel,
+  .input:focus+.inputLabel {
+    font-size: 0.75rem !important;
+    top: 0.2rem !important;
+  }
+
+  .textArea:not(:placeholder-shown)+.inputLabel,
+  .textArea:focus+.inputLabel {
+    font-size: 0.75rem !important;
   }
 }
