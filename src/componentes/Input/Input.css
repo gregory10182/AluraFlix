@@ -155,9 +155,13 @@
   .input, .select, .form .colorInput{
     height: 3.125rem;
     font-size: 1.125rem;
+  }
+
+  .form .colorInput {
     padding: 1rem 1rem 0.5rem 1rem;
   }
 
+  
   .textArea{
     height: 9.375rem;
     font-size: 1.125rem;
