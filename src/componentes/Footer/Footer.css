@@ -21,6 +21,7 @@
   color: var(--color-gray-light);
   font-size: 0.9rem;
   font-weight: 300;
+  text-align: center;
 }
 
 .textChallenge{
@@ -32,6 +33,18 @@
   font-weight: 600;
 }
 
+
+@media only screen and (min-width: 768px) {
+
+  .footer{
+    flex-wrap: wrap;
+  }
+
+  .text{
+    width: 100%;
+  }
+
+}
 
 @media only screen and (min-width: 1440px) {
   .footer {

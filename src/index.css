@@ -13,3 +13,9 @@ html{
 a{
   text-decoration: none;
 }
+
+.nuevaCatPage{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
