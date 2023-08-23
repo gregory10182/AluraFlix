@@ -1,9 +1,14 @@
 import Input from "../../Input/Input";
 import Boton from "../../Button/Boton";
-import "./FormCategoria.css";
 import { useState, useEffect } from "react";
 import apiCategories from "../../../services/categoryService";
 import { v4 as uuidv4 } from "uuid";
+import {
+  FormContainer,
+  FormTitle,
+  Form,
+  ButtonsContainer,
+} from "../FormComponents.js";
 
 function FormCategoria() {
   const [titulo, setTitulo] = useState("");
@@ -51,9 +56,9 @@ function FormCategoria() {
   };
 
   return (
-    <div className="formContainer">
-      <h2 className="formTitle">Nueva Categoria</h2>
-      <form className="form">
+    <FormContainer>
+      <FormTitle>Nueva Categoria</FormTitle>
+      <Form>
         <Input
           type={"text"}
           placeholder={"Titulo"}
@@ -78,8 +83,8 @@ function FormCategoria() {
           data={usuario}
           dataOutput={setUsuario}
         />
-      </form>
-      <div className="botones">
+      </Form>
+      <ButtonsContainer>
         <Boton
           type={"guardar"}
           text={"Guardar"}
@@ -87,8 +92,8 @@ function FormCategoria() {
           activo={activo}
         />
         <Boton type={"limpiar"} text={"Limpiar"} onClick={limpiar} />
-      </div>
-    </div>
+      </ButtonsContainer>
+    </FormContainer>
   );
 }
 

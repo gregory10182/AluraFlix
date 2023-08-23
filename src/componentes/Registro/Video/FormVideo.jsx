@@ -1,4 +1,3 @@
-import "./FormVideo.css";
 import Input from "../../Input/Input";
 import Boton from "../../Button/Boton";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,6 +5,12 @@ import { useEffect, useState } from "react";
 import data from "../../../data/db.json";
 import { v4 as uuidv4 } from "uuid";
 import apiVideos from "../../../services/videoService";
+import {
+  FormContainer,
+  FormTitle,
+  Form,
+  ButtonsContainer,
+} from "../FormComponents.js";
 
 function FormVideo() {
   const [titulo, setTitulo] = useState("");
@@ -62,10 +67,11 @@ function FormVideo() {
     setDescripcion("");
     setUsuario("");
   };
+
   return (
-    <div className="formContainer">
-      <h2 className="formTitle">Nuevo Video</h2>
-      <form className="form">
+    <FormContainer>
+      <FormTitle>Nuevo Video</FormTitle>
+      <Form>
         <Input
           type={"text"}
           placeholder={"Titulo"}
@@ -105,8 +111,8 @@ function FormVideo() {
           data={usuario}
           dataOutput={setUsuario}
         />
-      </form>
-      <div className="botones">
+      </Form>
+      <ButtonsContainer>
         <Boton
           type={"guardar"}
           text={"Guardar"}
@@ -114,12 +120,12 @@ function FormVideo() {
           activo={activo}
         />
         <Boton type={"limpiar"} text={"Limpiar"} onClick={limpiar} />
-      </div>
+      </ButtonsContainer>
 
       <Link to={"/nuevaCat"}>
         <Boton type={"nuevaCategoria"} text={"Nueva Categoria"} />
       </Link>
-    </div>
+    </FormContainer>
   );
 }
 
