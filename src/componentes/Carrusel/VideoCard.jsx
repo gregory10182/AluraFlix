@@ -1,27 +1,26 @@
-import "./Carrusel.css";
+import { styled } from "styled-components";
+
+const StyledVideoCard = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  min-height: 5rem;
+  border: 0.2rem solid ${({ bordercolor }) => bordercolor};
+`;
+
+const VideoMiniature = styled.img`
+  width: 100%;
+  object-fit: cover;
+`;
 
 function VideoCard({ color, imgUrl }) {
-  const border = {
-    border: `0.2rem solid ${
-      color.includes("--") ? `var(${color})` : `${color}`
-    }`,
-  };
-
-  // const getYoutubeThumbnail = (url) => {
-  //   const position = url.indexOf("v=");
-  //   if (position !== -1) {
-  //     const id = url.substring(position + 2);
-  //     const thumbnail = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
-  //     setThumbnail(thumbnail);
-  //   } else {
-  //     setThumbnail("/src/assets/Logo.png");
-  //   }
-  // };
-
   return (
-    <div style={border} className="videoCard">
-      <img className="videoMiniature" src={imgUrl} alt="a" />
-    </div>
+    <StyledVideoCard
+      bordercolor={color.includes("--") ? `var(${color})` : `${color}`}
+    >
+      <VideoMiniature src={imgUrl} alt="a" />
+    </StyledVideoCard>
   );
 }
 
