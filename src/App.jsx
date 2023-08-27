@@ -1,5 +1,6 @@
 import Encabezado from "./componentes/Encabezado/Encabezado";
 import Principal from "./pages/Principal";
+import Video from "./pages/Video";
 import NuevoVideo from "./pages/NuevoVideo";
 import NuevaCategoria from "./pages/NuevaCategoria";
 import { Routes, Route } from "react-router-dom";
@@ -15,6 +16,7 @@ function App() {
         <Route path="/nuevoVid" element={<NuevoVideo />} />
         <Route path="/nuevoVid" element={<NuevoVideo />} />
         <Route path="/nuevaCat" element={<NuevaCategoria />} />
+        <Route path="/video/:id/:color" element={<Video />} />
       </Routes>
     </>
   );

@@ -6,6 +6,15 @@ const getAll = () => {
   return request.then((response) => response.data).catch((err) => err);
 };
 
+const getOne = (id) => {
+  const request = axios.get(`${baseUrl}/${id}`);
+  return request
+    .then((response) => {
+      return response.data;
+    })
+    .catch((err) => err);
+};
+
 const getCategoryVideos = (category) => {
   const request = axios.get(
     `${baseUrl}?categoria=${category.replace(" ", "%20")}`
@@ -23,6 +32,6 @@ const createVideo = (data) => {
   return request.then((response) => response).catch((err) => err);
 };
 
-const apiVideos = { getAll, getCategoryVideos, createVideo };
+const apiVideos = { getAll, getOne, getCategoryVideos, createVideo };
 
 export default apiVideos;

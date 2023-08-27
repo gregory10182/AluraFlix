@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
 const StyledVideoCard = styled.div`
@@ -14,13 +15,15 @@ const VideoMiniature = styled.img`
   object-fit: cover;
 `;
 
-function VideoCard({ color, imgUrl }) {
+function VideoCard({ color, imgUrl, video }) {
   return (
-    <StyledVideoCard
-      bordercolor={color.includes("--") ? `var(${color})` : `${color}`}
-    >
-      <VideoMiniature src={imgUrl} alt="a" />
-    </StyledVideoCard>
+    <Link to={`/video/${video}/${color}`}>
+      <StyledVideoCard
+        bordercolor={color.includes("--") ? `var(${color})` : `${color}`}
+      >
+        <VideoMiniature src={imgUrl} alt="a" />
+      </StyledVideoCard>
+    </Link>
   );
 }
 

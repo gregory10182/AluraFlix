@@ -149,6 +149,7 @@ function Carrusel({ sectionTitle, sectionDesc, sectionColor }) {
                     key={i}
                     color={sectionColor}
                     imgUrl={video.imgUrl}
+                    video={video.id}
                   />
                 );
               })}
@@ -163,6 +164,7 @@ function Carrusel({ sectionTitle, sectionDesc, sectionColor }) {
                     key={i}
                     color={sectionColor}
                     imgUrl={video.imgUrl}
+                    video={video.id}
                   />
                 );
               })}
