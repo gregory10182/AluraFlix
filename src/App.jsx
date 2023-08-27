@@ -1,5 +1,5 @@
 import Encabezado from "./componentes/Encabezado/Encabezado";
-import Principal from "./pages/principal";
+import Principal from "./pages/Principal";
 import NuevoVideo from "./pages/NuevoVideo";
 import NuevaCategoria from "./pages/NuevaCategoria";
 import { Routes, Route } from "react-router-dom";
