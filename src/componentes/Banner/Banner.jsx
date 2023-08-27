@@ -68,7 +68,9 @@ const VideoImage = styled.img`
     height: 20.84rem;
     border-radius: 0.25rem;
     border: ${({ color }) =>
-      `0.3rem solid ${color.includes("--") ? `var(${color})` : color}`};
+      `0.3rem solid ${
+        color.includes("--") ? `var(${color})` : color || "none"
+      }`};
   }
 `;
 
@@ -104,32 +106,21 @@ const CourseName = styled.div`
 
 function Banner({ categories }) {
   const [fVideo, setFVideo] = useState({});
-  const [fCategory, setFCategory] = useState("");
   const [categoryColor, setCategoryColor] = useState("#000000");
 
   useEffect(() => {
-    let categoryVideos = [];
+    let found = false;
     categories.map((category) => {
-      apiVideos.getCategoryVideos(category.nombre).then((res) => {
-        if (res.length > 0) {
-          categoryVideos.push(res);
+      return apiVideos.getCategoryVideos(category.nombre).then((res) => {
+        if (res.length > 0 && found === false) {
+          console.log(found);
+          console.log(res);
+          found = true;
+          setFVideo(res?.[0]);
         }
       });
     });
-
-    setTimeout(() => {
-      setFCategory(categoryVideos?.[0]?.[0]?.categoria);
-    }, 100);
   }, [categories]);
-
-  useEffect(() => {
-    apiVideos
-      .getCategoryVideos(fCategory)
-      .then((res) => {
-        setFVideo(res?.[0]);
-      })
-      .catch((err) => err);
-  }, [fCategory]);
 
   useEffect(() => {
     if (fVideo) {
