@@ -16,7 +16,7 @@ function Principal() {
 
   return (
     <section className="principal">
-      <Banner />
+      <Banner categories={categories} />
       {categories.map((categoria) => {
         return (
           <Carrusel

@@ -1,5 +1,6 @@
 import axios from "axios";
-const baseUrl = "https://aluraflixapi.gregorypf.site/Videos";
+const baseUrl = "http://localhost:3000/Videos";
+// const baseUrl = "https://aluraflixapi.gregorypf.site/Videos";
 
 const getAll = () => {
   const request = axios.get(baseUrl);
@@ -17,7 +18,7 @@ const getOne = (id) => {
 
 const getCategoryVideos = (category) => {
   const request = axios.get(
-    `${baseUrl}?categoria=${category.replace(" ", "%20")}`
+    `${baseUrl}?categoria=${category?.replace(" ", "%20")}`
   );
   return request
     .then((response) => {

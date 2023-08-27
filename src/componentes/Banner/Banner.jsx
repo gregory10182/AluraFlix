@@ -1,5 +1,9 @@
 import { styled } from "styled-components";
 import Boton from "../Button/Boton";
+import apiCategories from "../../services/categoryService";
+import apiVideos from "../../services/videoService";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const SectionBanner = styled.section`
   width: 100vw;
@@ -62,7 +66,8 @@ const VideoImage = styled.img`
     width: 40.375rem;
     height: 20.84rem;
     border-radius: 0.25rem;
-    border: 4px solid var(--color-frontend);
+    border: ${({ color }) =>
+      `0.3rem solid ${color.includes("--") ? `var(${color})` : color}`};
   }
 `;
 
@@ -80,10 +85,13 @@ const VideoDesc = styled.p`
 `;
 
 const CourseName = styled.div`
-  width: 18.5rem;
+  min-width: 17.5rem;
+  width: auto;
   height: 5.75rem;
+  padding: 0 1rem;
   margin-bottom: 2rem;
-  background-color: var(--color-frontend);
+  background-color: ${({ color }) =>
+    color.includes("--") ? `var(${color})` : color};
   color: var(--color-gray-light);
   font-size: 3.75rem;
   font-weight: 400;
@@ -93,23 +101,69 @@ const CourseName = styled.div`
   align-items: center;
 `;
 
-function Banner() {
+function Banner({ categories }) {
+  const [fVideo, setFVideo] = useState({});
+  const [fCategory, setFCategory] = useState("");
+  const [categoryColor, setCategoryColor] = useState("#000000");
+
+  useEffect(() => {
+    let categoryVideos = [];
+    categories.map((category) => {
+      apiVideos.getCategoryVideos(category.nombre).then((res) => {
+        if (res.length > 0) {
+          categoryVideos.push(res);
+        }
+      });
+    });
+
+    setTimeout(() => {
+      setFCategory(categoryVideos?.[0]?.[0]?.categoria);
+    }, 100);
+  }, [categories]);
+
+  useEffect(() => {
+    apiVideos
+      .getCategoryVideos(fCategory)
+      .then((res) => {
+        setFVideo(res?.[0]);
+      })
+      .catch((err) => err);
+    console.log(fCategory);
+  }, [fCategory]);
+
+  useEffect(() => {
+    if (fVideo) {
+      apiCategories
+        .getOne(fVideo.categoria)
+        .then((res) => {
+          setCategoryColor(res?.[0]?.color);
+        })
+        .catch((err) => err);
+    }
+  }, [fVideo]);
+
   return (
     <SectionBanner>
-      <SmallScreenTitle>Challenge React</SmallScreenTitle>
-      <Boton text={"Ver"} type={"ver"} />
+      <SmallScreenTitle>{fVideo?.nombre}</SmallScreenTitle>
 
+      <Link to={`/video/${fVideo?.id}/${categoryColor}`}>
+        <Boton text={"Ver"} type={"ver"} />
+      </Link>
       <BigScreenData>
         <Left>
-          <CourseName>Front End</CourseName>
-          <VideoTitle>Challenge React</VideoTitle>
-          <VideoDesc>
-            Este challenge es una forma de aprendizaje. Es un mecanismo donde
-            podrás comprometerte en la resolución de un problema para poder
-            aplicar todos los conocimientos adquiridos en la formación React.
-          </VideoDesc>
+          <CourseName color={categoryColor || ""}>
+            {fVideo?.categoria}
+          </CourseName>
+          <VideoTitle>{fVideo?.nombre}</VideoTitle>
+          <VideoDesc>{fVideo?.desc}</VideoDesc>
         </Left>
-        <VideoImage src="/video Banner.jpeg" alt="" />
+        <Link to={`/video/${fVideo?.id}/${categoryColor}`}>
+          <VideoImage
+            color={categoryColor || ""}
+            src={fVideo?.imgUrl}
+            alt={fVideo?.nombre}
+          />
+        </Link>
       </BigScreenData>
     </SectionBanner>
   );

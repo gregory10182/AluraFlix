@@ -6,12 +6,23 @@ const getAll = () => {
   return request.then((response) => response.data).catch((err) => err);
 };
 
+const getOne = (category) => {
+  const request = axios.get(
+    `${baseUrl}?nombre=${category?.replace(" ", "%20")}`
+  );
+  return request
+    .then((response) => {
+      return response.data;
+    })
+    .catch((err) => err);
+};
+
 const createCategory = (data) => {
   const request = axios.post(baseUrl, data);
 
   return request.then((response) => response).catch((err) => err);
 };
 
-const apiCategories = { getAll, createCategory };
+const apiCategories = { getAll, getOne, createCategory };
 
 export default apiCategories;
