@@ -124,11 +124,11 @@
     },
     {
       "id": "ec67abd2-6ad0-47f5-ac86-febcd66bc154",
-      "nombre": "¿Por qué estudiar Data Science? En este video nos explican que es el Data Science y algunas de sus aplicaciones y casos de la vida real.",
+      "nombre": "¿Por qué estudiar Data Science?",
       "URL": "https://www.youtube.com/watch?v=7_UXo-aqAeM",
       "imgUrl": "https://img.youtube.com/vi/7_UXo-aqAeM/maxresdefault.jpg",
       "categoria": "Data Science",
-      "desc": "Razones para estudiar data science",
+      "desc": "En este video nos explican que es el Data Science, algunas de sus aplicaciones, casos de la vida real y razones para estudiarla",
       "usuario": "Gregory"
     }
   ]
