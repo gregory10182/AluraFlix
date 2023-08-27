@@ -53,6 +53,7 @@ const Left = styled.div`
 
   @media only screen and (min-width: 1440px) {
     display: flex;
+    min-width: 50%;
     row-gap: 0.5rem;
     flex-wrap: wrap;
   }
@@ -128,7 +129,6 @@ function Banner({ categories }) {
         setFVideo(res?.[0]);
       })
       .catch((err) => err);
-    console.log(fCategory);
   }, [fCategory]);
 
   useEffect(() => {
@@ -149,22 +149,24 @@ function Banner({ categories }) {
       <Link to={`/video/${fVideo?.id}/${categoryColor}`}>
         <Boton text={"Ver"} type={"ver"} />
       </Link>
-      <BigScreenData>
-        <Left>
-          <CourseName color={categoryColor || ""}>
-            {fVideo?.categoria}
-          </CourseName>
-          <VideoTitle>{fVideo?.nombre}</VideoTitle>
-          <VideoDesc>{fVideo?.desc}</VideoDesc>
-        </Left>
-        <Link to={`/video/${fVideo?.id}/${categoryColor}`}>
-          <VideoImage
-            color={categoryColor || ""}
-            src={fVideo?.imgUrl}
-            alt={fVideo?.nombre}
-          />
-        </Link>
-      </BigScreenData>
+      {categoryColor !== "#000000" && (
+        <BigScreenData>
+          <Left>
+            <CourseName color={categoryColor || ""}>
+              {fVideo?.categoria}
+            </CourseName>
+            <VideoTitle>{fVideo?.nombre}</VideoTitle>
+            <VideoDesc>{fVideo?.desc}</VideoDesc>
+          </Left>
+          <Link to={`/video/${fVideo?.id}/${categoryColor}`}>
+            <VideoImage
+              color={categoryColor || ""}
+              src={fVideo?.imgUrl}
+              alt={fVideo?.nombre}
+            />
+          </Link>
+        </BigScreenData>
+      )}
     </SectionBanner>
   );
 }
