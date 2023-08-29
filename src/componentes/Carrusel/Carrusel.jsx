@@ -43,7 +43,7 @@ const CarruselHeader = styled.div`
 `;
 
 const SectionTitle = styled.h2`
-  background-color: ${({ bgcolor }) => bgcolor};
+  background-color: ${({ $bgcolor }) => $bgcolor};
   color: var(--color-gray-light);
   font-size: 1rem;
   font-weight: 400;
@@ -64,7 +64,7 @@ const SectionDesc = styled.p`
   font-weight: 300;
 `;
 
-function Carrusel({ sectionTitle, sectionDesc, sectionColor }) {
+function Carrusel({ sectionTitle, sectionDesc, sectionColor, setFCategory }) {
   const settings = {
     dots: true,
     speed: 500,
@@ -124,12 +124,21 @@ function Carrusel({ sectionTitle, sectionDesc, sectionColor }) {
     });
   }, [sectionTitle]);
 
+  useEffect(() => {
+    if (videos.length > 0) {
+      setFCategory({
+        video: videos[0],
+        color: sectionColor,
+      });
+    }
+  }, [videos, setFCategory, sectionColor]);
+
   if (videos.length > 0) {
     return (
       <CarruselSection>
         <CarruselHeader>
           <SectionTitle
-            bgcolor={
+            $bgcolor={
               sectionColor.includes("--")
                 ? `var(${sectionColor})`
                 : `${sectionColor}`

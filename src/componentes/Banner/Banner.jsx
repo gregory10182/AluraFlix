@@ -1,8 +1,5 @@
 import { styled } from "styled-components";
 import Boton from "../Button/Boton";
-import apiCategories from "../../services/categoryService";
-import apiVideos from "../../services/videoService";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const SectionBanner = styled.section`
@@ -104,56 +101,28 @@ const CourseName = styled.div`
   align-items: center;
 `;
 
-function Banner({ categories }) {
-  const [fVideo, setFVideo] = useState({});
-  const [categoryColor, setCategoryColor] = useState("#000000");
-
-  useEffect(() => {
-    let found = false;
-    categories.map((category) => {
-      return apiVideos.getCategoryVideos(category.nombre).then((res) => {
-        if (res.length > 0 && found === false) {
-          console.log(found);
-          console.log(res);
-          found = true;
-          setFVideo(res?.[0]);
-        }
-      });
-    });
-  }, [categories]);
-
-  useEffect(() => {
-    if (fVideo) {
-      apiCategories
-        .getOne(fVideo.categoria)
-        .then((res) => {
-          setCategoryColor(res?.[0]?.color);
-        })
-        .catch((err) => err);
-    }
-  }, [fVideo]);
+function Banner({ bannerData }) {
+  const { video, color } = bannerData;
 
   return (
     <SectionBanner>
-      <SmallScreenTitle>{fVideo?.nombre}</SmallScreenTitle>
+      <SmallScreenTitle>{video?.nombre}</SmallScreenTitle>
 
-      <Link to={`/video/${fVideo?.id}/${categoryColor}`}>
+      <Link to={`/video/${video?.id}/${color}`}>
         <Boton text={"Ver"} type={"ver"} />
       </Link>
-      {categoryColor !== "#000000" && (
+      {color !== "#000000" && (
         <BigScreenData>
           <Left>
-            <CourseName color={categoryColor || ""}>
-              {fVideo?.categoria}
-            </CourseName>
-            <VideoTitle>{fVideo?.nombre}</VideoTitle>
-            <VideoDesc>{fVideo?.desc}</VideoDesc>
+            <CourseName color={color || ""}>{video?.categoria}</CourseName>
+            <VideoTitle>{video?.nombre}</VideoTitle>
+            <VideoDesc>{video?.desc}</VideoDesc>
           </Left>
-          <Link to={`/video/${fVideo?.id}/${categoryColor}`}>
+          <Link to={`/video/${video?.id}/${color}`}>
             <VideoImage
-              color={categoryColor || ""}
-              src={fVideo?.imgUrl}
-              alt={fVideo?.nombre}
+              color={color || ""}
+              src={video?.imgUrl}
+              alt={video?.nombre}
             />
           </Link>
         </BigScreenData>

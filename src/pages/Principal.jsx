@@ -8,6 +8,20 @@ import { useEffect, useState } from "react";
 function Principal() {
   const [categories, setCategories] = useState([]);
 
+  const [bannerData, setbannerData] = useState({
+    category: {},
+    color: "",
+  });
+
+  const [found, setFound] = useState(false);
+
+  const firstCategoryDisplayed = (bannerData) => {
+    if (!found) {
+      setFound(true);
+      setbannerData(bannerData);
+    }
+  };
+
   useEffect(() => {
     apiCategories.getAll().then((res) => {
       setCategories(res);
@@ -16,7 +30,7 @@ function Principal() {
 
   return (
     <section className="principal">
-      <Banner categories={categories} />
+      <Banner bannerData={bannerData} />
       {categories.map((categoria) => {
         return (
           <Carrusel
@@ -24,6 +38,7 @@ function Principal() {
             sectionTitle={categoria.nombre}
             sectionDesc={categoria.desc}
             sectionColor={categoria.color}
+            setFCategory={firstCategoryDisplayed}
           />
         );
       })}

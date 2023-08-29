@@ -7,7 +7,7 @@ const StyledVideoCard = styled.div`
   align-items: center;
   width: 90%;
   min-height: 5rem;
-  border: 0.2rem solid ${({ bordercolor }) => bordercolor};
+  border: 0.2rem solid ${({ $bordercolor }) => $bordercolor};
 `;
 
 const VideoMiniature = styled.img`
@@ -19,7 +19,7 @@ function VideoCard({ color, imgUrl, video }) {
   return (
     <Link to={`/video/${video}/${color}`}>
       <StyledVideoCard
-        bordercolor={color.includes("--") ? `var(${color})` : `${color}`}
+        $bordercolor={color.includes("--") ? `var(${color})` : `${color}`}
       >
         <VideoMiniature src={imgUrl} alt="a" />
       </StyledVideoCard>
