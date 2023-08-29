@@ -3,56 +3,56 @@
     {
       "id": 1,
       "nombre": "Front End",
-      "color": "--color-frontend",
+      "color": "#6BD1FF",
       "desc": "Formacion Front End de Alura Latam",
       "usuario": ""
     },
     {
       "id": 2,
       "nombre": "Back End",
-      "color": "--color-backend",
+      "color": "#00C86F",
       "desc": "Formacion Back End de Alura Latam",
       "usuario": ""
     },
     {
       "id": 3,
       "nombre": "Mobile",
-      "color": "--color-mobile",
+      "color": "#FFBA05",
       "desc": "Formacion Mobile de Alura Latam",
       "usuario": ""
     },
     {
       "id": 4,
       "nombre": "UX",
-      "color": "--color-ux",
+      "color": "#DC6EBE",
       "desc": "Formacion UX de Alura Latam",
       "usuario": ""
     },
     {
       "id": 5,
       "nombre": "Infra",
-      "color": "--color-infra",
+      "color": "#9CD33B",
       "desc": "Formacion Infra de Alura Latam",
       "usuario": ""
     },
     {
       "id": 6,
       "nombre": "Marketing",
-      "color": "--color-marketing",
+      "color": "#6B5BE2",
       "desc": "Formacion Marketing de Alura Latam",
       "usuario": ""
     },
     {
       "id": 7,
       "nombre": "Innovacion",
-      "color": "--colo-inovation",
+      "color": "#FF8C2A",
       "desc": "Formacion Innovacion de Alura Latam",
       "usuario": ""
     },
     {
       "id": 8,
       "nombre": "Data Science",
-      "color": "--color-data-science",
+      "color": "#5DD99B",
       "desc": "Formacion Data Science de Alura Latam",
       "usuario": ""
     }
