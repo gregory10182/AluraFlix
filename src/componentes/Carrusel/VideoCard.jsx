@@ -18,9 +18,7 @@ const VideoMiniature = styled.img`
 function VideoCard({ color, imgUrl, video }) {
   return (
     <Link to={`/video/${video}/${color}`}>
-      <StyledVideoCard
-        $bordercolor={color.includes("--") ? `var(${color})` : `${color}`}
-      >
+      <StyledVideoCard $bordercolor={color}>
         <VideoMiniature src={imgUrl} alt="a" />
       </StyledVideoCard>
     </Link>

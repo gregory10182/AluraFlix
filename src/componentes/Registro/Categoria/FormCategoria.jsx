@@ -10,7 +10,7 @@ import {
   ButtonsContainer,
 } from "../FormComponents.js";
 
-function FormCategoria() {
+function FormCategoria({ editMode, categoryData }) {
   const [titulo, setTitulo] = useState("");
   const [color, setColor] = useState("#000000");
   const [descripcion, setDescripcion] = useState("");
@@ -30,6 +30,17 @@ function FormCategoria() {
     }
   }, [titulo, color, descripcion, usuario]);
 
+  useEffect(() => {
+    if (editMode) {
+      const { nombre, color, desc, usuario } = categoryData;
+      console.log(nombre, color, desc, usuario);
+      setTitulo(nombre);
+      setColor(color);
+      setDescripcion(desc);
+      setUsuario(usuario);
+    }
+  }, [editMode, categoryData]);
+
   const guardar = () => {
     const categoryData = {
       id: uuidv4(),
@@ -48,6 +59,24 @@ function FormCategoria() {
     console.log(categoryData);
   };
 
+  const editar = () => {
+    const dataToEdit = {
+      nombre: titulo,
+      color,
+      desc: descripcion,
+      usuario,
+    };
+
+    apiCategories
+      .editCategory(dataToEdit, categoryData.id)
+      .then((response) => {
+        console.log(response);
+        location.reload();
+      })
+      .catch((err) => console.log(err));
+    console.log(categoryData);
+  };
+
   const limpiar = () => {
     setTitulo("");
     setColor("#000000");
@@ -57,7 +86,7 @@ function FormCategoria() {
 
   return (
     <FormContainer>
-      <FormTitle>Nueva Categoria</FormTitle>
+      <FormTitle>{editMode ? "Editar" : "Nueva"}Categoria</FormTitle>
       <Form>
         <Input
           type={"text"}
@@ -87,8 +116,8 @@ function FormCategoria() {
       <ButtonsContainer>
         <Boton
           type={"guardar"}
-          text={"Guardar"}
-          onClick={guardar}
+          text={editMode ? "Editar" : "Guardar"}
+          onClick={editMode ? editar : guardar}
           activo={activo}
         />
         <Boton type={"limpiar"} text={"Limpiar"} onClick={limpiar} />

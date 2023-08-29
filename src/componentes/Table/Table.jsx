@@ -85,7 +85,7 @@ const TableButtons = styled.button`
   }
 `;
 
-function Table() {
+function Table({ editFunc }) {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -93,10 +93,6 @@ function Table() {
       setCategories(res);
     });
   }, []);
-
-  useEffect(() => {
-    console.log(categories);
-  }, [categories]);
 
   return (
     <OutlineTable>
@@ -116,7 +112,7 @@ function Table() {
                 <TD>{category.nombre}</TD>
                 <TD>{category.desc}</TD>
                 <TD>
-                  <TableButtons onClick={() => console.log(category.id)}>
+                  <TableButtons onClick={() => editFunc(category)}>
                     Editar
                   </TableButtons>
                 </TD>

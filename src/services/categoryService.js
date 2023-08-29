@@ -23,6 +23,12 @@ const createCategory = (data) => {
   return request.then((response) => response).catch((err) => err);
 };
 
-const apiCategories = { getAll, getOne, createCategory };
+const editCategory = (data, id) => {
+  const request = axios.put(`${baseUrl}/${id}`, data);
+
+  return request.then((response) => response).catch((err) => err);
+};
+
+const apiCategories = { getAll, getOne, createCategory, editCategory };
 
 export default apiCategories;

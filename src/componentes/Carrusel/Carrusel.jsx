@@ -137,15 +137,7 @@ function Carrusel({ sectionTitle, sectionDesc, sectionColor, setFCategory }) {
     return (
       <CarruselSection>
         <CarruselHeader>
-          <SectionTitle
-            $bgcolor={
-              sectionColor.includes("--")
-                ? `var(${sectionColor})`
-                : `${sectionColor}`
-            }
-          >
-            {sectionTitle}
-          </SectionTitle>
+          <SectionTitle $bgcolor={sectionColor}>{sectionTitle}</SectionTitle>
           <SectionDesc>{sectionDesc}</SectionDesc>
         </CarruselHeader>
 

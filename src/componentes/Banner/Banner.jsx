@@ -64,10 +64,7 @@ const VideoImage = styled.img`
     width: 40.375rem;
     height: 20.84rem;
     border-radius: 0.25rem;
-    border: ${({ color }) =>
-      `0.3rem solid ${
-        color.includes("--") ? `var(${color})` : color || "none"
-      }`};
+    border: 0.3rem solid ${({ color }) => color || "none"};
   }
 `;
 
@@ -90,8 +87,7 @@ const CourseName = styled.div`
   height: 5.75rem;
   padding: 0 1rem;
   margin-bottom: 2rem;
-  background-color: ${({ color }) =>
-    color.includes("--") ? `var(${color})` : color};
+  background-color: ${({ color }) => color};
   color: var(--color-gray-light);
   font-size: 3.75rem;
   font-weight: 400;
