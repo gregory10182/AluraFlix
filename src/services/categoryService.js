@@ -29,6 +29,18 @@ const editCategory = (data, id) => {
   return request.then((response) => response).catch((err) => err);
 };
 
-const apiCategories = { getAll, getOne, createCategory, editCategory };
+const deleteCategory = (id) => {
+  const request = axios.delete(`${baseUrl}/${id}`);
+
+  return request.then((response) => response).catch((err) => err);
+};
+
+const apiCategories = {
+  getAll,
+  getOne,
+  createCategory,
+  editCategory,
+  deleteCategory,
+};
 
 export default apiCategories;

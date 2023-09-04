@@ -52,8 +52,8 @@ function FormCategoria({ editMode, categoryData }) {
 
     apiCategories
       .createCategory(categoryData)
-      .then((response) => {
-        console.log(response);
+      .then(() => {
+        location.reload();
       })
       .catch((err) => console.log(err));
     console.log(categoryData);
@@ -69,8 +69,7 @@ function FormCategoria({ editMode, categoryData }) {
 
     apiCategories
       .editCategory(dataToEdit, categoryData.id)
-      .then((response) => {
-        console.log(response);
+      .then(() => {
         location.reload();
       })
       .catch((err) => console.log(err));

@@ -85,7 +85,13 @@ const TableButtons = styled.button`
   }
 `;
 
-function Table({ editFunc }) {
+function Table({
+  editFunc,
+  deleteModal,
+  setDeleteModal,
+  setCategoryId,
+  setCategoryName,
+}) {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -117,7 +123,13 @@ function Table({ editFunc }) {
                   </TableButtons>
                 </TD>
                 <TD>
-                  <TableButtons onClick={() => console.log(category.id)}>
+                  <TableButtons
+                    onClick={() => {
+                      setCategoryName(category.nombre);
+                      setCategoryId(category.id);
+                      setDeleteModal(!deleteModal);
+                    }}
+                  >
                     Remover
                   </TableButtons>
                 </TD>
