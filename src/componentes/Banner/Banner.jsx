@@ -104,7 +104,7 @@ function Banner({ bannerData }) {
     <SectionBanner>
       <SmallScreenTitle>{video?.nombre}</SmallScreenTitle>
 
-      <Link to={`/video/${video?.id}/${color}`}>
+      <Link to={`/video/${video?.id}/${color.replace("#", "")}`}>
         <Boton text={"Ver"} type={"ver"} />
       </Link>
       {color !== "#000000" && (
@@ -114,7 +114,7 @@ function Banner({ bannerData }) {
             <VideoTitle>{video?.nombre}</VideoTitle>
             <VideoDesc>{video?.desc}</VideoDesc>
           </Left>
-          <Link to={`/video/${video?.id}/${color}`}>
+          <Link to={`/video/${video?.id}/${color.replace("#", "")}`}>
             <VideoImage
               color={color || ""}
               src={video?.imgUrl}

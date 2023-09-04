@@ -64,7 +64,7 @@ function Video() {
         width={"100%"}
         height={"80%"}
         style={{
-          border: `0.35rem solid ${color}`,
+          border: `0.35rem solid #${color}`,
         }}
       />
       <StyledVideoDesc>{videoData.desc}</StyledVideoDesc>
