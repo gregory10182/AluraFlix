@@ -20,6 +20,7 @@ const CarruselSection = styled.div`
 
 const StyledSlider = styled.div`
   justify-self: center;
+  box-sizing: border-box;
   width: 100%;
   min-width: 0;
   min-height: 0;
@@ -30,6 +31,14 @@ const StyledSlider = styled.div`
 
   & .slick-dots .slick-active button:before {
     color: var(--color-gray-light);
+  }
+
+  & .slick-arrow {
+    box-sizing: border-box;
+  }
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
   }
 `;
 
@@ -70,21 +79,19 @@ function Carrusel({ sectionTitle, sectionDesc, sectionColor, setFCategory }) {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    arrows: false,
     centerMode: true,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,
         },
       },
     ],
