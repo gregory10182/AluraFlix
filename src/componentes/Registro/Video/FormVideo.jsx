@@ -2,9 +2,9 @@ import Input from "../../Input/Input";
 import Boton from "../../Button/Boton";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import data from "../../../data/db.json";
 import { v4 as uuidv4 } from "uuid";
 import apiVideos from "../../../services/videoService";
+import apiCategorias from "../../../services/categoryService";
 import {
   FormContainer,
   FormTitle,
@@ -95,7 +95,7 @@ function FormVideo() {
           data={categoria}
           placeholder={"Escoja una categoria"}
           dataOutput={setCategoria}
-          options={data.Categorias.map((Categoria) => {
+          options={apiCategorias.getAll.map((Categoria) => {
             return Categoria.nombre;
           })}
         />
