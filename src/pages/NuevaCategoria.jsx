@@ -1,5 +1,6 @@
 import FormCategoria from "../componentes/Registro/Categoria/FormCategoria";
 import Table from "../componentes/Table/Table";
+import Login from "../componentes/Login/Login";
 import DeleteModal from "../componentes/DeleteModal/DeleteModal";
 import Footer from "../componentes/Footer/Footer";
 import { styled } from "styled-components";
@@ -45,23 +46,29 @@ function NuevaCategoria() {
 
   return (
     <NuevaCat>
-      <FormCategoria editMode={editMode} categoryData={categoryData} />
-      <Table
-        editFunc={editModeFunc}
-        deleteModal={deleteModal}
-        setDeleteModal={deleteModalHandler}
-        setCategoryId={idHandler}
-        setCategoryName={nameHandler}
-      />
-      {deleteModal && (
-        <DeleteModal
-          id={categoryId}
-          name={categoryName}
-          deleteModal={deleteModal}
-          setDeleteModal={deleteModalHandler}
-          resetId={resetId}
-          resetName={resetName}
-        />
+      {localStorage.getItem("tkn") ? (
+        <>
+          <FormCategoria editMode={editMode} categoryData={categoryData} />
+          <Table
+            editFunc={editModeFunc}
+            deleteModal={deleteModal}
+            setDeleteModal={deleteModalHandler}
+            setCategoryId={idHandler}
+            setCategoryName={nameHandler}
+          />
+          {deleteModal && (
+            <DeleteModal
+              id={categoryId}
+              name={categoryName}
+              deleteModal={deleteModal}
+              setDeleteModal={deleteModalHandler}
+              resetId={resetId}
+              resetName={resetName}
+            />
+          )}
+        </>
+      ) : (
+        <Login />
       )}
       <Footer />
     </NuevaCat>
