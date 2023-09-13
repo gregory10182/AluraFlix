@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import Boton from "../Button/Boton";
+import LogOut from "../LogOut/LogOut";
 import { Link, useLocation } from "react-router-dom";
 
 const Header = styled.section`
@@ -41,6 +42,7 @@ function Encabezado() {
         <Logo src="/Logo.png" alt="AluraLogo" />
       </Link>
 
+      {localStorage.getItem("tkn") && <LogOut />}
       {location.pathname === "/" && (
         <Link to={"/nuevoVid"}>
           <Boton text={"Nuevo Video"} type={"nuevoVideoHeader"} />

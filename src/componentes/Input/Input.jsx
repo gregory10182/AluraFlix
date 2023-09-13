@@ -164,12 +164,17 @@ function Input({ type, placeholder, dataOutput, data, options }) {
 
   const inputValidation = (e) => {
     const validity = e.target.validity;
+    const type = e.target.type;
     if (validity.valid) {
       setInvalid(false);
     } else if (validity.valueMissing) {
       invalidFunc(`El campo ${placeholder} es obligatorio`);
-    } else if (validity.patternMismatch) {
+    } else if (validity.patternMismatch && type === "url") {
       invalidFunc(`Patron aceptado: http(s)://(www).asd.com/a`);
+    } else if (validity.patternMismatch && type === "email") {
+      invalidFunc(`Patron aceptado: pepito@correo.com`);
+    } else if (validity.tooShort) {
+      invalidFunc(`La contraseña debe ser de 6 digitos minimo`);
     }
   };
 
@@ -184,6 +189,36 @@ function Input({ type, placeholder, dataOutput, data, options }) {
         required
         invalid={invalid.toString() || ""}
         maxLength={50}
+        value={data}
+        onChange={(e) => dataOutput(e.target.value)}
+        onBlur={(e) => inputValidation(e)}
+      />
+    ),
+    email: (
+      <NormalInput
+        className="inputV"
+        type="email"
+        placeholder={placeholder}
+        id={inputId}
+        name={placeholder}
+        pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+        required
+        invalid={invalid.toString() || ""}
+        value={data}
+        onChange={(e) => dataOutput(e.target.value)}
+        onBlur={(e) => inputValidation(e)}
+      />
+    ),
+    password: (
+      <NormalInput
+        className="inputV"
+        type="password"
+        placeholder={placeholder}
+        id={inputId}
+        name={placeholder}
+        required
+        minLength={6}
+        invalid={invalid.toString() || ""}
         value={data}
         onChange={(e) => dataOutput(e.target.value)}
         onBlur={(e) => inputValidation(e)}

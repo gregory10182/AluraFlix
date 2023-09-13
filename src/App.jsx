@@ -14,7 +14,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Principal />} />
         <Route path="/nuevoVid" element={<NuevoVideo />} />
-        <Route path="/nuevoVid" element={<NuevoVideo />} />
         <Route path="/nuevaCat" element={<NuevaCategoria />} />
         <Route path="/video/:id/:color" element={<Video />} />
       </Routes>
