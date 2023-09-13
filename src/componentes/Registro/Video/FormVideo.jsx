@@ -20,6 +20,7 @@ function FormVideo() {
   const [descripcion, setDescripcion] = useState("");
   const [usuario, setUsuario] = useState("");
   const [activo, setActivo] = useState(false);
+  const [categorias, setCategorias] = useState([]);
 
   const navigate = useNavigate();
 
@@ -45,6 +46,10 @@ function FormVideo() {
   };
 
   useEffect(() => {
+    apiCategorias.getAll().then((res) => {
+      setCategorias(res);
+    });
+
     if (
       titulo === "" ||
       linkVideo === "" ||
@@ -95,7 +100,7 @@ function FormVideo() {
           data={categoria}
           placeholder={"Escoja una categoria"}
           dataOutput={setCategoria}
-          options={apiCategorias.getAll.map((Categoria) => {
+          options={categorias.map((Categoria) => {
             return Categoria.nombre;
           })}
         />
