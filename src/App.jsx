@@ -3,20 +3,48 @@ import Principal from "./pages/Principal";
 import Video from "./pages/Video";
 import NuevoVideo from "./pages/NuevoVideo";
 import NuevaCategoria from "./pages/NuevaCategoria";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import GlobalStyle from "./GlobalStyle";
+import { tknContext } from "./contexts/tknContext";
+import { useEffect, useState } from "react";
+import jwtDecode from "jwt-decode";
 
 function App() {
+  const [tkn, setTkn] = useState(null);
+
+  const page = useLocation();
+
+  useEffect(() => {
+    const tkn = localStorage.getItem("tkn");
+
+    if (tkn) {
+      let currentDate = new Date();
+      let decodedTkn = jwtDecode(tkn);
+      if (decodedTkn.exp * 1000 < currentDate.getTime()) {
+        setTkn(null);
+        localStorage.removeItem("tkn");
+
+        setTimeout(() => {
+          location.reload();
+        }, 1000);
+      } else {
+        setTkn(tkn);
+      }
+    }
+  }, [page]);
+
   return (
     <>
       <GlobalStyle />
-      <Encabezado />
-      <Routes>
-        <Route path="/" element={<Principal />} />
-        <Route path="/nuevoVid" element={<NuevoVideo />} />
-        <Route path="/nuevaCat" element={<NuevaCategoria />} />
-        <Route path="/video/:id/:color" element={<Video />} />
-      </Routes>
+      <tknContext.Provider value={{ tkn, setTkn }}>
+        <Encabezado />
+        <Routes>
+          <Route path="/" element={<Principal />} />
+          <Route path="/nuevoVid" element={<NuevoVideo />} />
+          <Route path="/nuevaCat" element={<NuevaCategoria />} />
+          <Route path="/video/:id/:color" element={<Video />} />
+        </Routes>
+      </tknContext.Provider>
     </>
   );
 }

@@ -2,6 +2,8 @@ import { styled } from "styled-components";
 import Boton from "../Button/Boton";
 import LogOut from "../LogOut/LogOut";
 import { Link, useLocation } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { tknContext } from "../../contexts/tknContext";
 
 const Header = styled.section`
   display: flex;
@@ -35,6 +37,12 @@ const Logo = styled.img`
 
 function Encabezado() {
   const location = useLocation();
+
+  const { tkn } = useContext(tknContext);
+
+  useEffect(() => {
+    console.log(tkn);
+  }, [tkn]);
 
   return (
     <Header>

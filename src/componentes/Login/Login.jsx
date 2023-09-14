@@ -57,7 +57,6 @@ function Login() {
       password,
     })
       .then((res) => {
-        console.log(res.data);
         localStorage.setItem("tkn", res.data.accessToken);
 
         setTimeout(() => {
