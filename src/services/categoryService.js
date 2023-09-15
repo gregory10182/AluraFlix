@@ -1,5 +1,13 @@
 import axios from "axios";
-const baseUrl = "https://aluraflixapi.gregorypf.site/Categorias";
+const baseUrl = "https://aluraflixapi.gregorypf.site/664/Categorias";
+
+let config = {
+  headers: { Authorization: `` },
+};
+
+const setTkn = (tkn) => {
+  config.headers.Authorization = `Bearer ${tkn}`;
+};
 
 const getAll = () => {
   const request = axios.get(baseUrl);
@@ -18,19 +26,19 @@ const getOne = (category) => {
 };
 
 const createCategory = (data) => {
-  const request = axios.post(baseUrl, data);
+  const request = axios.post(baseUrl, data, config);
 
   return request.then((response) => response).catch((err) => err);
 };
 
 const editCategory = (data, id) => {
-  const request = axios.put(`${baseUrl}/${id}`, data);
+  const request = axios.put(`${baseUrl}/${id}`, data, config);
 
   return request.then((response) => response).catch((err) => err);
 };
 
 const deleteCategory = (id) => {
-  const request = axios.delete(`${baseUrl}/${id}`);
+  const request = axios.delete(`${baseUrl}/${id}`, config);
 
   return request.then((response) => response).catch((err) => err);
 };
@@ -41,6 +49,7 @@ const apiCategories = {
   createCategory,
   editCategory,
   deleteCategory,
+  setTkn,
 };
 
 export default apiCategories;

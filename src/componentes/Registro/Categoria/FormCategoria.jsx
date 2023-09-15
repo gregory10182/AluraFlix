@@ -1,6 +1,6 @@
 import Input from "../../Input/Input";
 import Boton from "../../Button/Boton";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import apiCategories from "../../../services/categoryService";
 import { v4 as uuidv4 } from "uuid";
 import {
@@ -9,6 +9,7 @@ import {
   Form,
   ButtonsContainer,
 } from "../FormComponents.js";
+import { tknContext } from "../../../contexts/tknContext";
 
 function FormCategoria({ editMode, categoryData }) {
   const [titulo, setTitulo] = useState("");
@@ -16,6 +17,8 @@ function FormCategoria({ editMode, categoryData }) {
   const [descripcion, setDescripcion] = useState("");
   const [usuario, setUsuario] = useState("");
   const [activo, setActivo] = useState(false);
+
+  const { tkn } = useContext(tknContext);
 
   useEffect(() => {
     if (
@@ -51,7 +54,7 @@ function FormCategoria({ editMode, categoryData }) {
     };
 
     apiCategories
-      .createCategory(categoryData)
+      .createCategory(categoryData, tkn)
       .then(() => {
         location.reload();
       })

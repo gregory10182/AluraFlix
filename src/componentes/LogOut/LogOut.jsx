@@ -7,19 +7,30 @@ const LogOutButton = styled.button`
   position: absolute;
   width: 1rem;
   height: 1rem;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 0.6rem;
+  right: 0.7rem;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media only screen and (min-width: 1440px) {
+    height: 2rem;
+    width: 2rem;
+    top: 1.6375rem;
+    right: 1.1rem;
+  }
 `;
 
 const ButtonImg = styled.img`
   width: 1rem;
   height: 1rem;
   object-fit: cover;
-  filter: invert(37%) sepia(70%) saturate(2252%) hue-rotate(200deg)
-    brightness(94%) contrast(89%);
+  filter: invert(100%);
+
+  @media only screen and (min-width: 1440px) {
+    height: 2rem;
+    width: 2rem;
+  }
 `;
 
 function LogOut() {
@@ -34,7 +45,7 @@ function LogOut() {
   return (
     <LogOutButton onClick={() => logOutHandler()}>
       <ButtonImg
-        src="https://cdn-icons-png.flaticon.com/512/8034/8034856.png"
+        src="https://cdn-icons-png.flaticon.com/512/8336/8336213.png"
         alt=""
       />
     </LogOutButton>

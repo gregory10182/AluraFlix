@@ -73,6 +73,7 @@ const BtnNuevoVideoHeader = styled(Btn)`
     height: 3.375rem;
     font-size: 1.2rem;
     font-weight: 500;
+    margin-right: 2rem;
     background-color: var(--color-black-dark);
     color: var(--color-gray-light);
     border-radius: 0.3rem;

@@ -8,6 +8,8 @@ import GlobalStyle from "./GlobalStyle";
 import { tknContext } from "./contexts/tknContext";
 import { useEffect, useState } from "react";
 import jwtDecode from "jwt-decode";
+import apiCategories from "./services/categoryService";
+import apiVideos from "./services/videoService";
 
 function App() {
   const [tkn, setTkn] = useState(null);
@@ -23,12 +25,15 @@ function App() {
       if (decodedTkn.exp * 1000 < currentDate.getTime()) {
         setTkn(null);
         localStorage.removeItem("tkn");
-
+        apiCategories.setTkn("");
+        apiVideos.setTkn("");
         setTimeout(() => {
           location.reload();
         }, 1000);
       } else {
         setTkn(tkn);
+        apiCategories.setTkn(tkn);
+        apiVideos.setTkn(tkn);
       }
     }
   }, [page]);
