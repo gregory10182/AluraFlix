@@ -79,6 +79,7 @@ function Carrusel({ sectionTitle, sectionDesc, sectionColor, setFCategory }) {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    rows: 0,
     centerMode: true,
     arrows: false,
     responsive: [
