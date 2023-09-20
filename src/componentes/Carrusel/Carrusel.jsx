@@ -80,7 +80,7 @@ function Carrusel({ sectionTitle, sectionDesc, sectionColor, setFCategory }) {
     dots: true,
     speed: 500,
     slidesToShow: 3,
-    infinite: videos.length >= 3,
+    infinite: videos.length > 3,
     slidesToScroll: 1,
     centerMode: true,
     arrows: false,
@@ -89,12 +89,14 @@ function Carrusel({ sectionTitle, sectionDesc, sectionColor, setFCategory }) {
         breakpoint: 1025,
         settings: {
           slidesToShow: 2,
+          infinite: videos.length > 2,
         },
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
+          infinite: videos.length > 1,
         },
       },
     ],
