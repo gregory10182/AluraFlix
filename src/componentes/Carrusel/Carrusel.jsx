@@ -74,17 +74,19 @@ const SectionDesc = styled.p`
 `;
 
 function Carrusel({ sectionTitle, sectionDesc, sectionColor, setFCategory }) {
+  const [videos, setVideos] = useState([]);
+
   const settings = {
     dots: true,
     speed: 500,
     slidesToShow: 3,
+    infinite: videos.length >= 3,
     slidesToScroll: 1,
-    rows: 0,
     centerMode: true,
     arrows: false,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1025,
         settings: {
           slidesToShow: 2,
         },
@@ -97,34 +99,6 @@ function Carrusel({ sectionTitle, sectionDesc, sectionColor, setFCategory }) {
       },
     ],
   };
-
-  const settingOne = {
-    dots: true,
-    speed: 500,
-    infinite: false,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    arrows: false,
-    centerMode: true,
-    responsive: [
-      {
-        breakpoint: 1025,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
-  const [videos, setVideos] = useState([]);
 
   useEffect(() => {
     apiVideos.getCategoryVideos(sectionTitle).then((res) => {
@@ -148,48 +122,20 @@ function Carrusel({ sectionTitle, sectionDesc, sectionColor, setFCategory }) {
           <SectionTitle $bgcolor={sectionColor}>{sectionTitle}</SectionTitle>
           <SectionDesc>{sectionDesc}</SectionDesc>
         </CarruselHeader>
-
-        {videos.length > 1 ? (
-          <StyledSlider>
-            <Slider {...settings}>
-              {videos.map((video, i) => {
-                return (
-                  <VideoCard
-                    key={i}
-                    color={sectionColor}
-                    imgUrl={video.imgUrl}
-                    video={video.id}
-                  />
-                );
-              })}
-            </Slider>
-          </StyledSlider>
-        ) : (
-          <StyledSlider>
-            <Slider {...settingOne}>
-              {videos.map((video, i) => {
-                return (
-                  <VideoCard
-                    key={i}
-                    color={sectionColor}
-                    imgUrl={video.imgUrl}
-                    video={video.id}
-                  />
-                );
-              })}
-            </Slider>
-          </StyledSlider>
-        )}
-
-        {/* <StyledSlider>
+        <StyledSlider>
           <Slider {...settings}>
             {videos.map((video, i) => {
               return (
-                <VideoCard key={i} color={sectionColor} imgUrl={video.imgUrl} />
+                <VideoCard
+                  key={i}
+                  color={sectionColor}
+                  imgUrl={video.imgUrl}
+                  video={video.id}
+                />
               );
             })}
           </Slider>
-        </StyledSlider> */}
+        </StyledSlider>
       </CarruselSection>
     );
   }
